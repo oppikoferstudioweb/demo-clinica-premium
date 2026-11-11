@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSTITUTO ÉLYSÉE • Dermatologia de Alta Precisão & Longevidade</title>
+    <meta name="description" content="Medicina estética integrativa, rejuvenescimento tridimensional e longevidade nos Jardins, São Paulo. A arte da beleza natural elevada ao padrão mais raro.">
+
+    <!-- Google Fonts: Cormorant Garamond (Editorial de Luxo) + Plus Jakarta Sans (Interface Limpa) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        elysee: {
+                            cream: '#FAF7F2',       /* Alabastro nobre quente */
+                            sand: '#F3ECE2',        /* Areia suave para contraste */
+                            sandDark: '#E5D9C8',
+                            card: '#FFFFFF',
+                            gold: '#C5A880',        /* Dourado champanhe nobre */
+                            goldDark: '#9A7B56',    /* Bronze dourado legível */
+                            goldLight: '#F5EFE6',   /* Champanhe translúcido */
+                            onyx: '#1A1816',        /* Preto grafite elegante */
+                            stone: '#44403C',       /* Cinza pedra para textos */
+                            muted: '#78716C',       /* Cinza suave para legendas */
+                            border: 'rgba(197, 168, 128, 0.28)', /* Fio dourado */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::selection {
+            background-color: #C5A880;
+            color: #FFFFFF;
+        }
+
+        /* Lenis Smooth Scroll Setup */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        /* Vidro Fosco de Luxo */
+        .glass-luxury {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 168, 128, 0.32);
+        }
+
+        .glass-dark {
+            background: rgba(26, 24, 22, 0.96);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        /* Gaveta Mobile Suave */
+        #mobile-drawer {
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #mobile-drawer.hidden-drawer {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-12px);
+        }
+        #mobile-drawer.active-drawer {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        /* Efeito de Word-Scrub (Palavras iluminadas no scroll) */
+        .word-token {
+            display: inline-block;
+            transition: color 0.25s ease, opacity 0.25s ease;
+        }
+
+        /* Esconder scrollbar na visualização mobile de cards */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Zoom cinematográfico suave ao passar o mouse */
+        .img-zoom {
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-card:hover .img-zoom {
+            transform: scale(1.04);
+        }
+
+        /* Efeito sutil de respiração de fundo no Hero */
+        @keyframes subtleZoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-hero-bg {
+            animation: subtleZoom 24s ease-in-out infinite alternate;
+        }
+
+        /* Animação do Toast VIP de Sucesso */
+        @keyframes toastSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .toast-active {
+            animation: toastSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Efeito de destaque no campo de seleção ao clicar no card */
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.7); }
+            50% { box-shadow: 0 0 0 8px rgba(197, 168, 128, 0.25); border-color: #9A7B56; }
+            100% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0); }
+        }
+        .highlight-field {
+            animation: highlightPulse 1.4s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-elysee-cream text-elysee-stone font-sans antialiased overflow-x-hidden selection:bg-elysee-gold selection:text-white">
+
+    <!-- ================================================================= -->
+    <!-- 1. NAVBAR DE LUXO FLUTUANTE (FIXA, ESTÁVEL E SEM COLISÕES) -->
+    <!-- ================================================================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto rounded-full py-3 px-6 sm:px-8 flex items-center justify-between glass-luxury shadow-[0_10px_30px_rgba(26,24,22,0.06)]">
+            
+            <!-- Logotipo do Instituto -->
+            <a href="#hero" class="flex flex-col group">
+                <span class="font-serif text-2xl sm:text-3xl font-medium tracking-[0.22em] text-elysee-onyx group-hover:text-elysee-goldDark transition-colors">
+                    ÉLYSÉE
+                </span>
+                <span class="text-[8px] tracking-[0.4em] text-elysee-goldDark font-semibold uppercase -mt-1">
+                    Dermatologia & Longevidade
+                </span>
+            </a>
+
+            <!-- Menu Desktop com Scroll Suave Lenis -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-wider uppercase text-elysee-onyx">
+                <a href="#instituto" class="hover:text-elysee-goldDark transition-colors py-1">
+                    O Instituto
+                </a>
+                <a href="#protocolos" class="hover:text-elysee-goldDark transition-colors py-1">
+                    Protocolos
+                </a>
+                <a href="#resultados" class="hover:text-elysee-goldDark transition-colors py-1">
+                    Antes & Depois
+                </a>
+                <a href="#experiencia" class="hover:text-elysee-goldDark transition-colors py-1">
+                    O Espaço
+                </a>
+                <a href="#corpo-clinico" class="hover:text-elysee-goldDark transition-colors py-1">
+                    Corpo Clínico
+                </a>
+            </div>
+
+            <!-- Botão de Ação VIP (Desktop) & Menu Hambúrguer (Mobile) -->
+            <div class="flex items-center gap-3">
+                <a href="#contato" class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-elysee-onyx text-elysee-gold text-xs font-bold tracking-widest uppercase shadow-md hover:bg-elysee-goldDark hover:text-white transition-all transform hover:-translate-y-0.5">
+                    <span>Agendar Consulta</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+
+                <!-- Botão Hambúrguer Mobile -->
+                <button id="mobile-menu-btn" aria-label="Abrir menu" class="lg:hidden w-10 h-10 rounded-full flex flex-col items-center justify-center gap-1.5 bg-elysee-sand text-elysee-onyx border border-elysee-gold/30 focus:outline-none">
+                    <span class="w-5 h-[1.5px] bg-elysee-onyx"></span>
+                    <span class="w-3.5 h-[1.5px] bg-elysee-onyx"></span>
+                    <span class="w-5 h-[1.5px] bg-elysee-onyx"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================================================================= -->
+    <!-- 2. GAVETA EM TELA CHEIA (MOBILE LUXURY DRAWER) -->
+    <!-- ================================================================= -->
+    <div id="mobile-drawer" class="hidden-drawer fixed inset-0 z-50 glass-dark text-white flex flex-col justify-between p-8 overflow-y-auto">
+        <div class="flex items-center justify-between pb-6 border-b border-white/10">
+            <div>
+                <span class="font-serif text-2xl tracking-[0.2em] text-white">ÉLYSÉE</span>
+                <span class="block text-[8px] tracking-[0.35em] text-elysee-gold uppercase font-semibold">Jardins • São Paulo</span>
+            </div>
+            <button id="close-drawer-btn" class="w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center hover:bg-white/20 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-6 py-6">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-elysee-gold font-bold">Navegação Rápida</span>
+            <a href="#instituto" class="mobile-nav-link font-serif text-3xl text-stone-200 hover:text-elysee-gold transition-colors flex items-center justify-between">
+                <span>01. O Instituto</span>
+                <i class="fa-solid fa-arrow-right text-xs opacity-50"></i>
+            </a>
+            <a href="#protocolos" class="mobile-nav-link font-serif text-3xl text-stone-200 hover:text-elysee-gold transition-colors flex items-center justify-between">
+                <span>02. Protocolos</span>
+                <i class="fa-solid fa-arrow-right text-xs opacity-50"></i>
+            </a>
+            <a href="#resultados" class="mobile-nav-link font-serif text-3xl text-stone-200 hover:text-elysee-gold transition-colors flex items-center justify-between">
+                <span>03. Antes & Depois</span>
+                <i class="fa-solid fa-arrow-right text-xs opacity-50"></i>
+            </a>
+            <a href="#experiencia" class="mobile-nav-link font-serif text-3xl text-stone-200 hover:text-elysee-gold transition-colors flex items-center justify-between">
+                <span>04. O Espaço</span>
+                <i class="fa-solid fa-arrow-right text-xs opacity-50"></i>
+            </a>
+            <a href="#corpo-clinico" class="mobile-nav-link font-serif text-3xl text-stone-200 hover:text-elysee-gold transition-colors flex items-center justify-between">
+                <span>05. Corpo Clínico</span>
+                <i class="fa-solid fa-arrow-right text-xs opacity-50"></i>
+            </a>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 space-y-3">
+            <a href="https://wa.me/5511988442200?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20exclusiva%20no%20Instituto%20%C3%89lys%C3%A9e." target="_blank" rel="noopener noreferrer" class="mobile-nav-link block w-full py-4 text-center rounded-2xl bg-elysee-gold text-elysee-onyx font-bold text-xs uppercase tracking-widest shadow-xl">
+                Agendar via Concierge WhatsApp
+            </a>
+            <p class="text-center text-[11px] text-stone-400">
+                Al. Gabriel Monteiro da Silva, 1840 • Valet Cortesia
+            </p>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 3. HERO CINEMATOGRÁFICO (REFINADO: CONTRASTE AAA & DENSIDADE MOBILE) -->
+    <!-- ================================================================= -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-8 pt-20 sm:pt-28 pb-12 sm:pb-16 overflow-hidden">
+        
+        <!-- Fundo em Alta Resolução com Respiração Suave (Sem reflow/jank) -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=85" 
+                 alt="Recepção do Instituto Élysée de Dermatologia" 
+                 class="w-full h-full object-cover brightness-[0.74] animate-hero-bg">
+            <div class="absolute inset-0 bg-gradient-to-t from-elysee-onyx via-elysee-onyx/55 to-elysee-onyx/80"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-elysee-gold/25 via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Conteúdo Hero Perfeitamente Ancorado -->
+        <div class="relative z-10 max-w-4xl mx-auto text-white">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-semibold text-elysee-goldLight tracking-widest uppercase mb-5 sm:mb-6 shadow-xl">
+                <i class="fa-solid fa-sparkles text-[11px] text-amber-200"></i>
+                <span>Medicina Estética Integrativa & Longevidade</span>
+            </div>
+
+            <!-- Título com Contraste Dourado Encorpado e Nítido -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal leading-[1.08] tracking-tight mb-5 sm:mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+                A Arte da Beleza Natural Elevada ao Seu Padrão Mais <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-elysee-goldLight to-amber-200">Raro & Precioso.</span>
+            </h1>
+
+            <!-- Subtítulo em font-normal (400) para Leitura Nítida em Qualquer Iluminação -->
+            <p class="text-sm sm:text-lg md:text-xl text-stone-100 font-normal leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                Dermatologia de precisão milimétrica, rejuvenescimento tridimensional e gerenciamento biológico da idade em um ambiente de absoluto sigilo nos Jardins.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+                <a href="#contato" class="w-full sm:w-auto px-8 py-4 rounded-full bg-elysee-gold text-elysee-onyx text-xs font-bold tracking-widest uppercase shadow-2xl hover:bg-white transition-all transform hover:-translate-y-0.5">
+                    Solicitar Avaliação VIP
+                </a>
+                <a href="#protocolos" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-widest uppercase hover:bg-white hover:text-elysee-onyx transition-all">
+                    Explorar Protocolos ▾
+                </a>
+            </div>
+
+            <!-- Faixa Integrada de 4 Métricas de Autoridade (Visível no Mobile) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-black/50 backdrop-blur-xl border border-white/20 text-left text-white max-w-3xl mx-auto shadow-2xl">
+                <div class="p-2 sm:p-3 border-r border-white/15">
+                    <span class="block font-serif text-xl sm:text-2xl font-medium text-amber-200">+12.000</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-300 font-medium">Procedimentos</span>
+                </div>
+                <div class="p-2 sm:p-3 lg:border-r border-white/15">
+                    <span class="block font-serif text-xl sm:text-2xl font-medium text-amber-200">100% RQE</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-300 font-medium">Médicos Titulados</span>
+                </div>
+                <div class="p-2 sm:p-3 border-r border-white/15">
+                    <span class="block font-serif text-xl sm:text-2xl font-medium text-amber-200">15 Anos</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-300 font-medium">Jardins • SP</span>
+                </div>
+                <div class="p-2 sm:p-3">
+                    <span class="block font-serif text-xl sm:text-2xl font-medium text-amber-200">Suíça & Alemã</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-300 font-medium">Tecnologias</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. O INSTITUTO: IMAGEM PROPORCIONADA & REVELAÇÃO NO SCROLL (WORD-SCRUB) -->
+    <!-- ================================================================= -->
+    <section id="instituto" class="py-24 sm:py-32 px-4 sm:px-8 bg-elysee-cream">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
+            
+            <!-- Coluna Visual com Tamanho Proporcionado no Desktop -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-[440px] max-h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-elysee-border aspect-[4/5] img-card">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Cuidado Dermatológico e Rejuvenescimento Facial no Instituto Élysée" 
+                         class="w-full h-full object-cover img-zoom">
+                </div>
+
+                <!-- Card Flutuante de Filosofia Médica -->
+                <div class="absolute -bottom-6 -right-2 sm:-right-4 bg-white p-5 sm:p-6 rounded-2xl shadow-xl border border-elysee-border max-w-[280px]">
+                    <i class="fa-solid fa-quote-left text-xl text-elysee-gold mb-2 block"></i>
+                    <p class="font-serif text-sm sm:text-base text-elysee-onyx italic leading-snug mb-2">
+                        "O melhor procedimento é aquele que todos admiram, mas ninguém consegue apontar onde foi feito."
+                    </p>
+                    <span class="block text-[10px] uppercase tracking-widest font-semibold text-elysee-goldDark">
+                        — Dra. Sofia Valença • CRM 148.920
+                    </span>
+                </div>
+            </div>
+
+            <!-- Coluna Textual com Word-Scrub -->
+            <div class="lg:col-span-7 space-y-6">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-elysee-sand border border-elysee-gold/30 text-xs font-semibold text-elysee-goldDark tracking-widest uppercase">
+                    01 • Nossa Filosofia
+                </span>
+
+                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-elysee-onyx leading-tight">
+                    Rejeitamos exageros. Valorizamos a sua arquitetura facial original.
+                </h2>
+
+                <div id="scrub-container" class="font-serif text-xl sm:text-2xl text-stone-400 font-light leading-relaxed">
+                    <p class="word-scrub-target">
+                        No Instituto Élysée, acreditamos que a verdadeira elegância reside na sutileza. O envelhecimento é gerenciado com inteligência biológica, restauração milimétrica de volumes perdidos e estímulo contínuo de colágeno autólogo.
+                    </p>
+                </div>
+
+                <!-- 2 Pilares Essenciais -->
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-elysee-border shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-elysee-goldLight text-elysee-goldDark flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-dna text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sm text-elysee-onyx mb-1">Mapeamento Tridimensional Prévio</h3>
+                            <p class="text-xs text-elysee-muted leading-relaxed">Avaliamos proporções ósseas, compartimentos de gordura e dinâmica muscular antes de qualquer plano.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-elysee-border shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-elysee-goldLight text-elysee-goldDark flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-shield-heart text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sm text-elysee-onyx mb-1">Origem Biológica Certificada</h3>
+                            <p class="text-xs text-elysee-muted leading-relaxed">Utilizamos estritamente bioestimuladores e ácidos hialurônicos de liderança global (Suíça, França e EUA).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="#protocolos" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-elysee-onyx hover:text-elysee-goldDark transition-colors group">
+                        <span>Ver Nossos Protocolos Exclusivos</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. PROTOCOLOS EXCLUSIVOS: CARROSSEL TOUCH NO CELULAR & GRADE NO PC (COM PRÉ-SELEÇÃO INTELIGENTE) -->
+    <!-- ================================================================= -->
+    <section id="protocolos" class="py-24 sm:py-32 px-4 sm:px-8 bg-elysee-sand border-y border-elysee-border">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <span class="inline-block px-3 py-1 rounded-full bg-white border border-elysee-gold/30 text-[10px] font-bold text-elysee-goldDark tracking-widest uppercase mb-2">
+                        02 • Catálogo Médico
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-elysee-onyx">
+                        Protocolos de Precisão Sob Medida
+                    </h2>
+                </div>
+                <div class="text-xs text-elysee-muted flex items-center gap-2">
+                    <span class="hidden sm:inline">Clique em "Agendar" para pré-selecionar o tratamento no formulário</span>
+                    <span class="sm:hidden text-elysee-goldDark font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-arrows-left-right text-xs"></i> Deslize para ver os tratamentos
+                    </span>
+                </div>
+            </div>
+
+            <!-- Grade Responsiva: Carrossel Tátil no Mobile com 100% de Centralização e Zero Fresta + Grade no PC -->
+            <div id="protocolos-carousel" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory pb-2 scroll-smooth">
+                
+                <!-- Protocolo 1 -->
+                <div class="w-full shrink-0 snap-center flex justify-center sm:w-auto sm:shrink sm:block">
+                    <div class="w-[90vw] max-w-[340px] sm:w-full sm:max-w-none bg-white rounded-3xl overflow-hidden border border-elysee-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between img-card">
+                        <div class="aspect-[16/11] overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Harmonização Facial Tridimensional" 
+                                 class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-elysee-onyx/90 backdrop-blur-md text-[9px] font-bold uppercase tracking-wider text-elysee-gold">
+                                Facial Full-Face
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="font-serif text-xl font-normal text-elysee-onyx mb-2">Harmonização Tridimensional</h3>
+                                <p class="text-xs text-elysee-muted leading-relaxed mb-4">
+                                    Reposicionamento estrutural de malar, mento e mandíbula com ácido hialurônico suíço. Sem exageros volumétricos.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
+                                <span class="text-elysee-goldDark font-semibold"><i class="fa-regular fa-clock mr-1"></i> 60 min</span>
+                                <a href="#contato" data-treatment="Harmonização Facial Natural" class="btn-select-treatment font-bold text-elysee-onyx hover:text-elysee-goldDark flex items-center gap-1">
+                                    Agendar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Protocolo 2 -->
+                <div class="w-full shrink-0 snap-center flex justify-center sm:w-auto sm:shrink sm:block">
+                    <div class="w-[90vw] max-w-[340px] sm:w-full sm:max-w-none bg-white rounded-3xl overflow-hidden border border-elysee-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between img-card">
+                        <div class="aspect-[16/11] overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Bioestimuladores de Colágeno" 
+                                 class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-elysee-onyx/90 backdrop-blur-md text-[9px] font-bold uppercase tracking-wider text-elysee-gold">
+                                Neocolagênese
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="font-serif text-xl font-normal text-elysee-onyx mb-2">Bioestimuladores de Colágeno</h3>
+                                <p class="text-xs text-elysee-muted leading-relaxed mb-4">
+                                    Aplicação precisa de Radiesse e Sculptra para combater a flacidez facial e cervical com duração de até 24 meses.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
+                                <span class="text-elysee-goldDark font-semibold"><i class="fa-regular fa-clock mr-1"></i> Até 24m</span>
+                                <a href="#contato" data-treatment="Bioestimuladores de Colágeno" class="btn-select-treatment font-bold text-elysee-onyx hover:text-elysee-goldDark flex items-center gap-1">
+                                    Agendar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Protocolo 3 -->
+                <div class="w-full shrink-0 snap-center flex justify-center sm:w-auto sm:shrink sm:block">
+                    <div class="w-[90vw] max-w-[340px] sm:w-full sm:max-w-none bg-white rounded-3xl overflow-hidden border border-elysee-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between img-card">
+                        <div class="aspect-[16/11] overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Laser Dermatológico Porcelana" 
+                                 class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-elysee-onyx/90 backdrop-blur-md text-[9px] font-bold uppercase tracking-wider text-elysee-gold">
+                                Tecnologia Laser
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="font-serif text-xl font-normal text-elysee-onyx mb-2">Protocolo Laser Porcelana</h3>
+                                <p class="text-xs text-elysee-muted leading-relaxed mb-4">
+                                    Fechamento imediato de poros, uniformização de tom e brilho acetinado sem tempo de recuperação com Lavieen.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
+                                <span class="text-elysee-goldDark font-semibold"><i class="fa-solid fa-sparkles mr-1"></i> Zero Downtime</span>
+                                <a href="#contato" data-treatment="Protocolo Laser e Melasma" class="btn-select-treatment font-bold text-elysee-onyx hover:text-elysee-goldDark flex items-center gap-1">
+                                    Agendar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Protocolo 4 -->
+                <div class="w-full shrink-0 snap-center flex justify-center sm:w-auto sm:shrink sm:block">
+                    <div class="w-[90vw] max-w-[340px] sm:w-full sm:max-w-none bg-white rounded-3xl overflow-hidden border border-elysee-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between img-card">
+                        <div class="aspect-[16/11] overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Medicina da Longevidade" 
+                                 class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-elysee-onyx/90 backdrop-blur-md text-[9px] font-bold uppercase tracking-wider text-elysee-gold">
+                                Longevidade
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <h3 class="font-serif text-xl font-normal text-elysee-onyx mb-2">Terapia Ortomolecular & Glow</h3>
+                                <p class="text-xs text-elysee-muted leading-relaxed mb-4">
+                                    Infusões biológicas de antioxidantes, glutationa e nutrientes celulares para viço cutâneo de dentro para fora.
+                                </p>
+                            </div>
+                            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
+                                <span class="text-elysee-goldDark font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Vitalidade</span>
+                                <a href="#contato" data-treatment="Outros Protocolos" class="btn-select-treatment font-bold text-elysee-onyx hover:text-elysee-goldDark flex items-center gap-1">
+                                    Agendar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bolinhas Indicadoras (Pagination Dots) no Mobile -->
+            <div id="protocolos-dots" class="flex sm:hidden items-center justify-center gap-2 mt-5">
+                <button class="dot-btn w-6 h-1.5 rounded-full bg-elysee-gold transition-all duration-300" data-index="0" aria-label="Card 1"></button>
+                <button class="dot-btn w-1.5 h-1.5 rounded-full bg-stone-300 transition-all duration-300" data-index="1" aria-label="Card 2"></button>
+                <button class="dot-btn w-1.5 h-1.5 rounded-full bg-stone-300 transition-all duration-300" data-index="2" aria-label="Card 3"></button>
+                <button class="dot-btn w-1.5 h-1.5 rounded-full bg-stone-300 transition-all duration-300" data-index="3" aria-label="Card 4"></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. RESULTADOS CLÍNICOS: COMPARADOR INTERATIVO COM BOTÃO TOGGLE (100% FLUIDO & SEM TRAVAR TOQUE) -->
+    <!-- ================================================================= -->
+    <section id="resultados" class="py-24 sm:py-32 px-4 sm:px-8 bg-elysee-cream">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <span class="inline-block px-4 py-1.5 rounded-full bg-elysee-sand border border-elysee-gold/30 text-xs font-semibold text-elysee-goldDark tracking-widest uppercase mb-4">
+                03 • Precisão Clínica
+            </span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-elysee-onyx mb-4">
+                Resultados Visíveis com Naturalidade Inquestionável
+            </h2>
+            <p class="text-sm sm:text-base text-elysee-stone font-light max-w-xl mx-auto mb-8">
+                Toque nos botões abaixo para alternar entre a linha de base inicial do paciente e a evolução clínica de 30 dias com o Protocolo Élysée Glow.
+            </p>
+
+            <!-- Controle Seletor Interativo de Alta Tecnologia (Funciona com 1 toque) -->
+            <div class="inline-flex p-1.5 rounded-full bg-elysee-sand border border-elysee-border shadow-inner mb-8">
+                <button id="btn-show-before" class="px-5 sm:px-8 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-elysee-onyx shadow-md">
+                    Linha de Base Inicial (D0)
+                </button>
+                <button id="btn-show-after" class="px-5 sm:px-8 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-stone-500 hover:text-elysee-onyx">
+                    Pós-Protocolo (D+30) ✨
+                </button>
+            </div>
+
+            <!-- Caixa de Exibição Clínica com Transição Suave -->
+            <div class="relative w-full max-w-2xl mx-auto aspect-[16/11] sm:aspect-[16/10] rounded-3xl overflow-hidden border-2 border-elysee-border shadow-2xl bg-elysee-sand">
+                
+                <!-- Imagem ANTES -->
+                <div id="case-before" class="absolute inset-0 w-full h-full transition-opacity duration-500 opacity-100">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Pele Inicial Antes do Procedimento" 
+                         class="w-full h-full object-cover grayscale-[35%] brightness-95">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 text-left text-white">
+                        <span class="inline-block px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider border border-white/20 mb-2">
+                            D0 • Estado Inicial
+                        </span>
+                        <h4 class="font-serif text-xl sm:text-2xl font-normal">Sinais de Opacidade e Poros Dilatados</h4>
+                        <p class="text-xs text-stone-300 font-light">Paciente relatava desidratação e perda do viço natural cutâneo.</p>
+                    </div>
+                </div>
+
+                <!-- Imagem DEPOIS -->
+                <div id="case-after" class="absolute inset-0 w-full h-full transition-opacity duration-500 opacity-0 pointer-events-none">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Pós-Tratamento Estético Luminoso" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 text-left text-white">
+                        <span class="inline-block px-3 py-1 rounded-full bg-elysee-gold text-elysee-onyx text-[10px] font-bold uppercase tracking-wider shadow mb-2">
+                            D+30 • Protocolo Élysée Glow ✨
+                        </span>
+                        <h4 class="font-serif text-xl sm:text-2xl font-normal">Uniformização de Tom & Viço Radiante</h4>
+                        <p class="text-xs text-stone-200 font-light">+38% melhora da textura dérmica e sustentação profunda de colágeno.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 7. O ESPAÇO: ARQUITETURA SENSORIAL DOS JARDINS -->
+    <!-- ================================================================= -->
+    <section id="experiencia" class="py-24 sm:py-32 px-4 sm:px-8 bg-elysee-sand border-t border-elysee-border">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-12">
+                <div class="lg:col-span-8">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-white border border-elysee-gold/30 text-xs font-semibold text-elysee-goldDark tracking-widest uppercase mb-4">
+                        04 • O Espaço
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-elysee-onyx leading-tight">
+                        Um refúgio de tranquilidade e sigilo no coração dos Jardins.
+                    </h2>
+                </div>
+                <div class="lg:col-span-4">
+                    <p class="text-xs sm:text-sm text-elysee-stone font-light leading-relaxed">
+                        Cada ambiente foi concebido com iluminação circadiana, aromaterapia botânica personalizada e isolamento acústico em suítes individuais para seu absoluto conforto.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Galeria de 3 Ambientes da Clínica -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-white/80 aspect-[4/5] img-card relative">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" 
+                         alt="Lounge de Espera com Café Gourmet e Champanhe" 
+                         class="w-full h-full object-cover img-zoom">
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/50 backdrop-blur-md text-white">
+                        <span class="block text-xs font-semibold">Lounge Sensorial</span>
+                        <span class="text-[10px] text-stone-300">Cafeteria especial, chás botânicos e espumante</span>
+                    </div>
+                </div>
+
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-white/80 aspect-[4/5] img-card relative">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" 
+                         alt="Consultório Médico Individual com Tecnologia de Ponta" 
+                         class="w-full h-full object-cover img-zoom">
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/50 backdrop-blur-md text-white">
+                        <span class="block text-xs font-semibold">Suítes Privativas de Atendimento</span>
+                        <span class="text-[10px] text-stone-300">Isolamento acústico e privacidade de prontuário</span>
+                    </div>
+                </div>
+
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-white/80 aspect-[4/5] img-card relative">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
+                         alt="Sala de Pós-Procedimento e Recuperação Relaxante" 
+                         class="w-full h-full object-cover img-zoom">
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/50 backdrop-blur-md text-white">
+                        <span class="block text-xs font-semibold">Recovery Suite</span>
+                        <span class="text-[10px] text-stone-300">Fototerapia calmante e repouso pós-procedimento</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 8. CORPO CLÍNICO: AUTORIDADE MÉDICA (DRA. SOFIA VALENÇA) -->
+    <!-- ================================================================= -->
+    <section id="corpo-clinico" class="py-24 sm:py-32 px-4 sm:px-8 bg-elysee-cream">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
+                
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="w-full max-w-[420px] rounded-3xl overflow-hidden shadow-2xl border border-elysee-border aspect-[3/4] img-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=85" 
+                             alt="Dra. Sofia Valença • Diretora Clínica do Instituto Élysée" 
+                             class="w-full h-full object-cover img-zoom">
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-2 sm:-left-4 p-4 rounded-2xl bg-elysee-onyx text-white border border-elysee-gold/30 shadow-2xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-elysee-gold text-elysee-onyx flex items-center justify-center font-bold text-xs">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-white">CRM-SP 148.920</span>
+                                <span class="block text-[10px] text-elysee-gold">RQE 82.410 • Dermatologia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-elysee-sand border border-elysee-gold/30 text-xs font-semibold text-elysee-goldDark tracking-widest uppercase">
+                        05 • Diretora Clínica
+                    </span>
+
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-elysee-onyx leading-tight">
+                        Dra. Sofia Valença
+                    </h2>
+
+                    <p class="text-xs uppercase tracking-wider text-elysee-goldDark font-semibold">
+                        Especialista em Dermatologia Avançada & Anatomia Facial
+                    </p>
+
+                    <p class="text-sm sm:text-base text-elysee-stone font-light leading-relaxed">
+                        Com mais de 15 anos de dedicação exclusiva à dermatologia estética e rejuvenescimento estrutural, a Dra. Sofia Valença lidera o corpo clínico com rigor científico e uma sensibilidade artística apurada.
+                    </p>
+
+                    <div class="space-y-3 pt-2 text-xs sm:text-sm text-elysee-stone">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-elysee-goldDark text-xs"></i>
+                            <span>Membro Titular da Sociedade Brasileira de Dermatologia (SBD).</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-elysee-goldDark text-xs"></i>
+                            <span>Fellowship Internacional em Rejuvenescimento Facial em Genebra, Suíça.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-elysee-goldDark text-xs"></i>
+                            <span>Graduação e Residência Médica pela Universidade de São Paulo (USP).</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#contato" class="px-8 py-4 rounded-full bg-elysee-onyx text-elysee-gold text-xs font-bold tracking-widest uppercase shadow-xl hover:bg-elysee-goldDark hover:text-white transition-all">
+                            Agendar Avaliação com a Dra. Sofia
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 9. AGENDAMENTO VIP & CONCIERGE (NETLIFY COMPATIBLE & DEMO COM TOAST) -->
+    <!-- ================================================================= -->
+    <section id="contato" class="py-24 sm:py-32 px-4 sm:px-8 bg-elysee-sand border-t border-elysee-border relative">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-white border border-elysee-gold/30 text-xs font-semibold text-elysee-goldDark tracking-widest uppercase">
+                        06 • Concierge de Atendimento
+                    </span>
+
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-elysee-onyx leading-tight">
+                        Inicie sua jornada de rejuvenescimento sob medida.
+                    </h2>
+
+                    <p class="text-xs sm:text-sm text-elysee-stone font-light leading-relaxed">
+                        Nossa equipe de concierge entrará em contato de forma discreta em até 2 horas para entender seu objetivo e organizar sua consulta de avaliação.
+                    </p>
+
+                    <div class="space-y-4 pt-4 text-xs sm:text-sm text-elysee-stone">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white text-elysee-goldDark flex items-center justify-center shrink-0 shadow-sm">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-elysee-onyx font-medium">Endereço Nobre</strong>
+                                <p class="text-xs text-elysee-muted">Alameda Gabriel Monteiro da Silva, 1840 • Jardins, São Paulo</p>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/5511988442200?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20exclusiva%20no%20Instituto%20%C3%89lys%C3%A9e." target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 p-3 rounded-2xl bg-white/60 hover:bg-white border border-elysee-border transition group">
+                            <div class="w-10 h-10 rounded-xl bg-green-500/10 text-green-600 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-elysee-onyx font-medium group-hover:text-elysee-goldDark transition">WhatsApp Concierge Direto</strong>
+                                <p class="text-xs text-elysee-muted">(11) 98844-2200 • Toque para conversar agora</p>
+                            </div>
+                        </a>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white text-elysee-goldDark flex items-center justify-center shrink-0 shadow-sm">
+                                <i class="fa-solid fa-car"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-elysee-onyx font-medium">Comodidade</strong>
+                                <p class="text-xs text-elysee-muted">Estacionamento com manobrista privativo e lounge VIP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <form id="form-agendamento" name="agendamento-elysee" method="POST" data-netlify="true" class="p-8 sm:p-12 rounded-3xl bg-white border border-elysee-border shadow-2xl relative">
+                        <input type="hidden" name="form-name" value="agendamento-elysee">
+
+                        <h3 class="font-serif text-2xl font-normal text-elysee-onyx mb-2">Solicitar Agendamento VIP</h3>
+                        <p class="text-xs text-elysee-muted mb-8">Preencha os dados abaixo para receber os horários disponíveis.</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-elysee-onyx mb-2">Nome Completo</label>
+                                <input type="text" id="input-nome" name="nome" required placeholder="Ex: Maria Clara Silveira" 
+                                       class="w-full px-4 py-3.5 rounded-xl bg-elysee-cream border border-stone-200 text-elysee-onyx text-sm focus:border-elysee-goldDark focus:outline-none transition">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-elysee-onyx mb-2">WhatsApp de Contato</label>
+                                    <input type="tel" id="input-whatsapp" name="whatsapp" required placeholder="(11) 99999-9999" 
+                                           class="w-full px-4 py-3.5 rounded-xl bg-elysee-cream border border-stone-200 text-elysee-onyx text-sm focus:border-elysee-goldDark focus:outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-elysee-onyx mb-2">Período Preferencial</label>
+                                    <select name="periodo" class="w-full px-4 py-3.5 rounded-xl bg-elysee-cream border border-stone-200 text-elysee-onyx text-sm focus:border-elysee-goldDark focus:outline-none transition">
+                                        <option value="Manhã (09h às 13h)">Manhã (09h às 13h)</option>
+                                        <option value="Tarde (14h às 18h)">Tarde (14h às 18h)</option>
+                                        <option value="Final de Tarde (18h às 20h)">Final de Tarde (18h às 20h)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-elysee-onyx mb-2">Tratamento de Maior Interesse</label>
+                                <select id="select-tratamento" name="tratamento" class="w-full px-4 py-3.5 rounded-xl bg-elysee-cream border border-stone-200 text-elysee-onyx text-sm focus:border-elysee-goldDark focus:outline-none transition">
+                                    <option value="Consulta Avaliativa Facial Global">Consulta Avaliativa Facial Global (Escaneamento 3D)</option>
+                                    <option value="Harmonização Facial Natural">Harmonização Facial Natural (Ácido Hialurônico)</option>
+                                    <option value="Bioestimuladores de Colágeno">Bioestimuladores de Colágeno (Radiesse / Sculptra)</option>
+                                    <option value="Protocolo Laser e Melasma">Protocolo Laser e Melasma (BB Laser Lavieen)</option>
+                                    <option value="Outros Protocolos">Outros Protocolos Personalizados</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" id="btn-submit-form" class="w-full py-4 mt-2 rounded-xl bg-elysee-onyx text-elysee-gold hover:bg-elysee-goldDark hover:text-white font-bold text-xs uppercase tracking-widest shadow-xl transition-all">
+                                Solicitar Contato do Concierge
+                            </button>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between text-[11px] text-elysee-muted gap-2">
+                            <span><i class="fa-solid fa-lock text-elysee-goldDark mr-1"></i> Sigilo Médico Absoluto</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-clock text-elysee-goldDark mr-1"></i> Resposta em até 2 Horas</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-user-shield text-elysee-goldDark mr-1"></i> Padrão CFM</span>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 10. RODAPÉ DE ALTA GRIFE -->
+    <!-- ================================================================= -->
+    <footer class="py-16 px-4 sm:px-8 bg-elysee-onyx text-stone-400 text-xs border-t border-elysee-gold/20">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-white/10">
+                <div>
+                    <span class="font-serif text-3xl tracking-[0.2em] text-white">ÉLYSÉE</span>
+                    <span class="block text-[8px] tracking-[0.35em] text-elysee-gold uppercase font-semibold mt-1">Instituto de Dermatologia & Longevidade</span>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-6 text-xs uppercase tracking-wider text-stone-300">
+                    <a href="#instituto" class="hover:text-elysee-gold transition">O Instituto</a>
+                    <a href="#protocolos" class="hover:text-elysee-gold transition">Protocolos</a>
+                    <a href="#resultados" class="hover:text-elysee-gold transition">Antes & Depois</a>
+                    <a href="#experiencia" class="hover:text-elysee-gold transition">O Espaço</a>
+                    <a href="#corpo-clinico" class="hover:text-elysee-gold transition">Corpo Clínico</a>
+                </div>
+
+                <div class="flex items-center gap-4 text-lg text-elysee-gold">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Oficial" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-elysee-gold hover:text-elysee-onyx transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/5511988442200?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20exclusiva%20no%20Instituto%20%C3%89lys%C3%A9e." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Concierge" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-elysee-gold hover:text-elysee-onyx transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-[11px] text-stone-400 leading-relaxed">
+                <div>
+                    <p class="font-semibold text-stone-300 mb-1">Informações Regulatórias (CFM):</p>
+                    <p>Responsável Técnica: Dra. Sofia Valença • CRM-SP 148.920 • RQE 82.410 (Dermatologia). Este site segue a Resolução CFM nº 2.336/2023 sobre publicidade médica.</p>
+                </div>
+                <div class="md:text-right">
+                    <p>© 2026 Instituto Élysée de Dermatologia. Todos os direitos reservados.</p>
+                    <p class="text-stone-400 mt-1">Alameda Gabriel Monteiro da Silva, 1840 • Jardins, São Paulo - SP</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ================================================================= -->
+    <!-- 11. BARRA RÁPIDA NO RODAPÉ MOBILE (BOTTOM QUICK-ACTION PILL) -->
+    <!-- ================================================================= -->
+    <div class="fixed bottom-4 left-4 right-4 z-40 lg:hidden">
+        <div class="glass-luxury rounded-2xl p-2 shadow-2xl border border-elysee-border flex items-center gap-2">
+            <a href="#protocolos" class="flex-1 py-3 px-3 rounded-xl bg-elysee-sand text-elysee-onyx text-center text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2">
+                <i class="fa-solid fa-list-ul text-elysee-goldDark"></i>
+                <span>Protocolos</span>
+            </a>
+            <a href="https://wa.me/5511988442200?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20exclusiva%20no%20Instituto%20%C3%89lys%C3%A9e." target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 rounded-xl bg-elysee-onyx text-elysee-gold text-center text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>WhatsApp VIP</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 12. TOAST NOTIFICATION FLUTUANTE (FEEDBACK DE DEMONSTRAÇÃO VIP) -->
+    <!-- ================================================================= -->
+    <div id="demo-toast" class="fixed bottom-20 sm:bottom-8 right-4 left-4 sm:left-auto sm:right-8 z-50 max-w-md hidden opacity-0 pointer-events-none transition-all">
+        <div class="p-5 rounded-2xl bg-elysee-onyx/95 text-white border border-elysee-gold/50 shadow-2xl backdrop-blur-xl flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-elysee-gold text-elysee-onyx flex items-center justify-center shrink-0 font-bold text-sm">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="flex-grow">
+                <h5 class="font-serif text-lg text-white font-normal mb-1">✦ Solicitação VIP Recebida</h5>
+                <p id="toast-message" class="text-xs text-stone-300 font-light leading-relaxed">
+                    Obrigado. Nosso concierge entrará em contato em até 2 horas com os horários disponíveis.
+                </p>
+            </div>
+            <button id="close-toast-btn" class="text-stone-400 hover:text-white text-xs p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 13. SCRIPTS: LENIS SCROLL + GSAP WORD-SCRUB + SMART SELECTION + DEMO -->
+    <!-- ================================================================= -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. LENIS SMOOTH SCROLL (CONFIGURADO PARA LEVEZA TOTAL EM 60-120FPS)
+        const lenis = new Lenis({
+            duration: 1.0,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            touchMultiplier: 1.2,
+            smoothWheel: true,
+            smoothTouch: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        lenis.on('scroll', ScrollTrigger.update);
+
+        // 2. NAVEGAÇÃO DE MENU 100% FUNCIONAL POR ÂNCORA
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        lenis.scrollTo(targetEl, { offset: -80 });
+                    }
+                }
+            });
+        });
+
+        // 3. WORD-SCRUB NA FILOSOFIA (AS PALAVRAS ACENDEM NO SCROLL)
+        const scrubTarget = document.querySelector('.word-scrub-target');
+        if (scrubTarget) {
+            const words = scrubTarget.innerText.split(' ');
+            scrubTarget.innerHTML = words.map(w => `<span class="word-token opacity-20 text-stone-400">${w}</span>`).join(' ');
+
+            const tokens = scrubTarget.querySelectorAll('.word-token');
+            gsap.to(tokens, {
+                opacity: 1,
+                color: '#1A1816',
+                stagger: 0.04,
+                scrollTrigger: {
+                    trigger: '#scrub-container',
+                    start: 'top 85%',
+                    end: 'bottom 60%',
+                    scrub: 0.5,
+                }
+            });
+        }
+
+        // 4. COMPARADOR INTERATIVO ANTES/DEPOIS (TOGGLE SUAVE E SEGURO)
+        const btnBefore = document.getElementById('btn-show-before');
+        const btnAfter = document.getElementById('btn-show-after');
+        const caseBefore = document.getElementById('case-before');
+        const caseAfter = document.getElementById('case-after');
+
+        if (btnBefore && btnAfter && caseBefore && caseAfter) {
+            btnBefore.addEventListener('click', () => {
+                caseBefore.classList.remove('opacity-0', 'pointer-events-none');
+                caseBefore.classList.add('opacity-100');
+                caseAfter.classList.remove('opacity-100');
+                caseAfter.classList.add('opacity-0', 'pointer-events-none');
+
+                btnBefore.classList.add('bg-white', 'text-elysee-onyx', 'shadow-md');
+                btnBefore.classList.remove('text-stone-500');
+                btnAfter.classList.remove('bg-white', 'text-elysee-onyx', 'shadow-md');
+                btnAfter.classList.add('text-stone-500');
+            });
+
+            btnAfter.addEventListener('click', () => {
+                caseAfter.classList.remove('opacity-0', 'pointer-events-none');
+                caseAfter.classList.add('opacity-100');
+                caseBefore.classList.remove('opacity-100');
+                caseBefore.classList.add('opacity-0', 'pointer-events-none');
+
+                btnAfter.classList.add('bg-white', 'text-elysee-onyx', 'shadow-md');
+                btnAfter.classList.remove('text-stone-500');
+                btnBefore.classList.remove('bg-white', 'text-elysee-onyx', 'shadow-md');
+                btnBefore.classList.add('text-stone-500');
+            });
+        }
+
+        // 5. GAVETA MOBILE DE NAVEGAÇÃO
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-drawer-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function openDrawer() {
+            drawer.classList.remove('hidden-drawer');
+            drawer.classList.add('active-drawer');
+            document.body.style.overflow = 'hidden';
+            lenis.stop();
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('active-drawer');
+            drawer.classList.add('hidden-drawer');
+            document.body.style.overflow = '';
+            lenis.start();
+        }
+
+        if (menuBtn && closeBtn && drawer) {
+            menuBtn.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    closeDrawer();
+                    if (href && href.startsWith('#')) {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            setTimeout(() => {
+                                lenis.scrollTo(target, { offset: -80 });
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        }
+
+        // 6. PRÉ-SELEÇÃO INTELIGENTE DE TRATAMENTO AO CLICAR EM "AGENDAR" NOS CARDS
+        const selectTreatment = document.getElementById('select-tratamento');
+        const treatmentBtns = document.querySelectorAll('.btn-select-treatment');
+
+        treatmentBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const treatmentValue = this.getAttribute('data-treatment');
+                if (treatmentValue && selectTreatment) {
+                    selectTreatment.value = treatmentValue;
+                    
+                    // Adiciona destaque visual com pulso dourado
+                    selectTreatment.classList.remove('highlight-field');
+                    void selectTreatment.offsetWidth; // Força reflow para reiniciar animação
+                    selectTreatment.classList.add('highlight-field');
+                }
+            });
+        });
+
+        // 7. TOAST FEEDBACK DE DEMONSTRAÇÃO VIP AO ENVIAR FORMULÁRIO
+        const formAgendamento = document.getElementById('form-agendamento');
+        const demoToast = document.getElementById('demo-toast');
+        const toastMsg = document.getElementById('toast-message');
+        const closeToastBtn = document.getElementById('close-toast-btn');
+        let toastTimeout = null;
+
+        function showToast(nome) {
+            if (!demoToast) return;
+            const firstName = nome ? nome.split(' ')[0] : 'Estimado(a)';
+            if (toastMsg) {
+                toastMsg.innerText = `Obrigado, ${firstName}. Nossa equipe de concierge entrará em contato em até 2 horas pelo WhatsApp.`;
+            }
+            demoToast.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+            demoToast.classList.add('toast-active', 'opacity-100', 'pointer-events-auto');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                hideToast();
+            }, 5500);
+        }
+
+        function hideToast() {
+            if (!demoToast) return;
+            demoToast.classList.add('opacity-0', 'pointer-events-none');
+            demoToast.classList.remove('opacity-100', 'pointer-events-auto', 'toast-active');
+            setTimeout(() => {
+                demoToast.classList.add('hidden');
+            }, 300);
+        }
+
+        if (closeToastBtn) {
+            closeToastBtn.addEventListener('click', hideToast);
+        }
+
+        if (formAgendamento) {
+            formAgendamento.addEventListener('submit', function(e) {
+                // Em ambiente de teste local, simula o sucesso de envio para demonstração
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname.startsWith('192.168.');
+                if (isLocal) {
+                    e.preventDefault();
+                    const nome = document.getElementById('input-nome')?.value || '';
+                    showToast(nome);
+                    formAgendamento.reset();
+                }
+            });
+        }
+
+        // 8. CONTROLE DINÂMICO DAS BOLINHAS (DOTS) DO CARROSSEL DE PROTOCOLOS
+        const carousel = document.getElementById('protocolos-carousel');
+        const dots = document.querySelectorAll('#protocolos-dots .dot-btn');
+
+        if (carousel && dots.length > 0) {
+            carousel.addEventListener('scroll', () => {
+                const scrollLeft = carousel.scrollLeft;
+                const width = carousel.clientWidth;
+                if (width === 0) return;
+                const activeIndex = Math.min(dots.length - 1, Math.max(0, Math.round(scrollLeft / width)));
+
+                dots.forEach((dot, idx) => {
+                    if (idx === activeIndex) {
+                        dot.className = 'dot-btn w-6 h-1.5 rounded-full bg-elysee-gold transition-all duration-300';
+                    } else {
+                        dot.className = 'dot-btn w-1.5 h-1.5 rounded-full bg-stone-300 transition-all duration-300';
+                    }
+                });
+            }, { passive: true });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'), 10);
+                    const width = carousel.clientWidth;
+                    carousel.scrollTo({
+                        left: index * width,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+</html>
